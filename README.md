@@ -1,1 +1,1 @@
-# mathlab-kaito-sokuho
+# 解答速報 - 数学を愛する会
