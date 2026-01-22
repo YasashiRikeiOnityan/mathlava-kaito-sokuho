@@ -395,6 +395,59 @@ underlay last={\fill[black]
 IfValueTF={#1}{title=#2〈#1〉}{title=#2},#3}
 
 
+\DeclareTColorBox{problembox}{ o O{} }%
+{
+    enhanced, 
+    colback=white, 
+    colframe=black, 
+    sharp corners, 
+    boxrule=2pt,
+    breakable,
+    top=4mm,
+    bottom=4mm,
+    underlay unbroken={
+        \fill[black] ([xshift=2pt,yshift=-2pt]frame.north west) -- ++ (0pt,-8pt) arc [start angle=270, end angle=360, radius=8pt] -- cycle;
+        \fill[black] ([xshift=-2pt,yshift=-2pt]frame.north east) -- ++ (-8pt,0pt) arc [start angle=180, end angle=270, radius=8pt] -- cycle;
+        \fill[black] ([xshift=-2pt,yshift=2pt]frame.south east) -- ++ (0pt,8pt) arc [start angle=90, end angle=180, radius=8pt] -- cycle;
+        \fill[black] ([xshift=2pt,yshift=2pt]frame.south west) -- ++ (8pt,0pt) arc [start angle=0, end angle=90, radius=8pt] -- cycle;
+        \draw[black!50!white,line width=.5pt]
+            ([xshift=12pt,yshift=-4pt]frame.north west) -- ([xshift=-12pt,yshift=-4pt]frame.north east) 
+            arc [start angle=180, end angle=270, radius=8pt] 
+            -- ([xshift=-4pt,yshift=12pt]frame.south east) 
+            arc [start angle=90, end angle=180, radius=8pt] 
+            -- ([xshift=12pt,yshift=4pt]frame.south west)
+            arc [start angle=0, end angle=90, radius=8pt] 
+            -- ([xshift=4pt,yshift=-12pt]frame.north west)
+            arc [start angle=270, end angle=360, radius=8pt] -- cycle;
+    },
+    underlay first={
+        \fill[black] ([xshift=2pt,yshift=-2pt]frame.north west) -- ++ (0pt,-8pt) arc [start angle=270, end angle=360, radius=8pt] -- cycle;
+        \fill[black] ([xshift=-2pt,yshift=-2pt]frame.north east) -- ++ (-8pt,0pt) arc [start angle=180, end angle=270, radius=8pt] -- cycle;
+        \draw[black!50!white,line width=.5pt]
+            ([xshift=4pt]frame.south west) -- ([xshift=4pt,yshift=-12pt]frame.north west)
+            arc [start angle=270, end angle=360, radius=8pt] 
+            -- ([xshift=-12pt,yshift=-4pt]frame.north east)
+            arc [start angle=180, end angle=270, radius=8pt] 
+            -- ([xshift=-4pt]frame.south east);
+    },
+    underlay middle={
+        \draw[black!50!white,line width=.5pt] ([xshift=-4pt]frame.north east) -- ([xshift=-4pt]frame.south east);
+        \draw[black!50!white,line width=.5pt] ([xshift=4pt]frame.south west) -- ([xshift=4pt]frame.north west);
+    },
+    underlay last={
+        \fill[black] ([xshift=-2pt,yshift=2pt]frame.south east) -- ++ (0pt,8pt) arc [start angle=90, end angle=180, radius=8pt] -- cycle;
+        \fill[black] ([xshift=2pt,yshift=2pt]frame.south west) -- ++ (8pt,0pt) arc [start angle=0, end angle=90, radius=8pt] -- cycle;
+        \draw[black!50!white,line width=.5pt]
+            ([xshift=-4pt]frame.north east) -- ([xshift=-4pt,yshift=12pt]frame.south east) 
+            arc [start angle=90, end angle=180, radius=8pt] 
+            -- ([xshift=12pt,yshift=4pt]frame.south west)
+            arc [start angle=0, end angle=90, radius=8pt] 
+            -- ([xshift=4pt]frame.north west);
+    },
+    #2
+}
+
+
 \DeclareTColorBox{ascolorbox13}{ o m O{} }%
 {enhanced,frame empty,colback=white,colframe=black!50!white,
   coltitle=black!50!black,fonttitle=\bfseries,colbacktitle=black!15!white, enlarge top by=2mm,breakable,
